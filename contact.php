@@ -8,7 +8,7 @@
             <?php include('./header.php');?>
         </header>
         <h2>Nous Contacter</h2>
-        <p>Un probléme, une question ? Contacter nous via le formulaire suivant.</p>
+        <p>Un problème, une question ? Contactez-nous via le formulaire suivant.</p>
         <form method="post" action="./contact_saisie.php">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Email</label>
@@ -31,7 +31,7 @@
                         <a class="nav-link" href="./index.php">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./mentions_legales.php">Mentions légales</a>
+                        <a class="nav-link" href="./mentions_legales.php">Mentions Légales</a>
                     </li>
                 </ul>
             </nav>

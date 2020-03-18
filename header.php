@@ -1,7 +1,7 @@
 <?php
 if (!isset($_SESSION['user_is_connected']) || !$_SESSION['user_is_connected'])
 {
-   ?> <h1 class="h3 mb-3 font-weight-normal"><a href="./index.php">Connecter-vous</a></h1><?php
+   ?> <h1 class="h3 mb-3 font-weight-normal"><a href="./index.php">Connectez-vous</a></h1><?php
 }
 else
 {

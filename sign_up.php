@@ -55,41 +55,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     <img class="mb-4" src="https://user.oc-static.com/upload/2019/07/15/15631755744257_LOGO_GBAF_ROUGE%20%281%29.png" 
         rel="logo gbaf" width="72" height="72">
         <h1>Inscription</h1>
-        <p>Remplir les champs</p>
+        <p>Veuillez remplir les champs</p>
   </br>
         <form method="POST" action="./sign_up.php">
         
             <div class="form-row" style="padding: 5px">
                 <div class="col-md-4 mb-3">
                     <label for="validationDefault01">Nom</label>
-                    <input type="text" class="form-control" id="validationDefault01" placeholder="Entrer votre Nom" name="nom" required autofocus>
+                    <input type="text" class="form-control" id="validationDefault01" placeholder="Entrez votre Nom" name="nom" required autofocus>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="validationDefault02">Prénom</label>
-                    <input type="text" class="form-control" id="validationDefault02" placeholder="Entrer votre prénom" name="prenom" required> 
+                    <input type="text" class="form-control" id="validationDefault02" placeholder="Entrez votre Prénom" name="prenom" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label for="validationDefault03">Psedo 4 caractères minimum</label>
-                    <input type="text" class="form-control" id="validationDefault03" placeholder="Entrer votre UserName" name="user_name" required>
+                    <label for="validationDefault03">Pseudo (4 caractères minimum)</label>
+                    <input type="text" class="form-control" id="validationDefault03" placeholder="Entrez votre UserName" name="user_name" required>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <label for="validationDefault04">Mot de passe 8 caractères minimum</label>
-                    <input type="password" class="form-control" id="validationDefault04" placeholder="Entrer votre Password" name="password" required>
+                    <label for="validationDefault04">Mot de passe (8 caractères minimum)</label>
+                    <input type="password" class="form-control" id="validationDefault04" placeholder="Entrez votre Password" name="password" required>
                 </div>
                 <div class="col-md-4 mb-4">
                     <label for="validationDefault05">Question secrète</label>
-                    <input type="text" class="form-control" id="validationDefault05" placeholder="Entrer votre question secrète" name="question" required>
+                    <input type="text" class="form-control" id="validationDefault05" placeholder="Entrez votre question secrète" name="question" required>
                 </div>
                 <div class="col-md-4 mb-4">
                     <label for="validationDefault06">Réponse secrète</label>
-                    <input type="text" class="form-control" id="validationDefault06" placeholder="Entrer la réponse à la question secrète" name="reponse" required>
+                    <input type="text" class="form-control" id="validationDefault06" placeholder="Entrez la réponse à la question secrète" name="reponse" required>
                 </div>
             </div>
             <div class="form-group">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
                     <label class="form-check-label" for="invalidCheck2">
-                    En créant un compte vous accepter nos <a href="./mentions_legales.php" style="color: dodgerblue">Termes & Conditions</a>
+                    En créant un compte vous acceptez nos <a href="./mentions_legales.php" style="color: dodgerblue">Termes & Conditions</a>
                     </label>
                 </div>
             </div>

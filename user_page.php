@@ -80,7 +80,7 @@ $req->closeCursor();
                             <input class="form-control" type="text" placeholder="<?=$user_data['prenom']?>" value ="<?=$user_data['prenom']?>" name="prenom" required>
                         </div>
                         <div class="col-md-4 mb-4">
-                            <label for="username"><b>Psedo</b></label>
+                            <label for="username"><b>Pseudo</b></label>
                             <input class="form-control" type="text" placeholder="<?=$user_data['user_name']?>" value ="<?=$user_data['user_name']?>" name="user_name" required>
                         </div>
                         <div class="col-md-4 mb-4">

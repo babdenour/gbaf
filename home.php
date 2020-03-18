@@ -27,7 +27,7 @@
                     rel="drapeau france">
                 </section>
 
-                <h2 style="text-align: center">text acteurs et partenaires</h2> 
+                <h2 style="text-align: center">Acteurs et Partenaires</h2>
                 <section class="">
                     <?php include('./section_acteurs.php'); ?>
                 </section>
