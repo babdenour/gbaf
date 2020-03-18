@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $_SESSION['reponse'] = $q_r['reponse'];
         $q_r_verif->closeCursor();
     ?>
-        <form name="q_r_form" method="POST" action="./recup_reponse.php">
+        <form class="" name="q_r_form" method="POST" action="./recup_reponse.php">
             <label for="question"><b>Question secrète : "<?=$_SESSION['question']?>"</b></br></label>
             <input type="text" placeholder="Entrer votre reponse secrète" name="reponse" required></br>
             <button type="submit">Validation</button>
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 else
 {
 ?>
-    <form class="recup_password" method="POST" action="./recup_password.php">
+    <form class="" method="POST" action="./recup_password.php">
         <label for="username"><b>Pseudo</b></label>
         <input type="text" placeholder="Entrer votre Pseudo" name="user_name" required>
         <button type="submit">Validation</button>

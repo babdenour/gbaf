@@ -4,7 +4,7 @@
     <h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
     <a class="btn btn-sm btn-outline-secondary col-sm-4 mt-4 mb-4" type="button" href="./sign_up.php">Pas de compte ?</a>
     <label for="inputUserName" class="sr-only">UserName</label>
-    <input type="text" id="inputEmail" class="form-control" placeholder="Psedo" name="user_name" required autofocus>
+    <input type="text" id="inputUserName" class="form-control" placeholder="Psedo" name="user_name" required autofocus>
 </br>
     <label for="inputPassword" class="sr-only">Password</label>
     <input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" name="password" required>

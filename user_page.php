@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_is_connected']) || !$_SESSION['user_is_connected'])
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    if (!(strlen(htmlspecialchars($_POST['user_name'])) || strlen(htmlspecialchars($_POST['password'])) <= 4))
+    if (strlen(htmlspecialchars($_POST['user_name'])) >= 4 && (strlen(htmlspecialchars($_POST['password'])) >= 8))
     {
         //verif of user_name disponobility
         $user_name_verif = $pdo->prepare("SELECT COUNT(*) FROM users WHERE user_name = ? AND user_id <> ?");
@@ -80,11 +80,11 @@ $req->closeCursor();
                             <input class="form-control" type="text" placeholder="<?=$user_data['prenom']?>" value ="<?=$user_data['prenom']?>" name="prenom" required>
                         </div>
                         <div class="col-md-4 mb-4">
-                            <label for="username"><b>Psedo</b></label>
+                            <label for="username"><b>Psedo 4 caractères minimum</b></label>
                             <input class="form-control" type="text" placeholder="<?=$user_data['user_name']?>" value ="<?=$user_data['user_name']?>" name="user_name" required>
                         </div>
                         <div class="col-md-4 mb-4">
-                            <label for="password"><b>Mot de passe</b></label>
+                            <label for="password"><b>Mot de passe 8 caractères minimum</b></label>
                             <input class="form-control" type="password" name="password" requred>
                         </div>
                         <div class="col-md-4 mb-4">

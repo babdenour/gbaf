@@ -4,7 +4,7 @@ require './_db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    if (!(strlen(htmlspecialchars($_POST['user_name'])) || strlen(htmlspecialchars($_POST['password'])) <= 4))
+    if ((strlen(htmlspecialchars($_POST['user_name'])) >= 4 && strlen(htmlspecialchars($_POST['password'])) >= 8))
     {
         header('Location: ./sign_up.php');
         //fetch of the username
