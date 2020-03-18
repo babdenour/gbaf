@@ -45,7 +45,6 @@ $commentaire = ($nbr_total_comments[0] <= 1) ? 'Commentaire' : 'Commentaires';
             <h3><?=$nbr_total_comments[0] .' '. $commentaire?></h3> 
             <script type="text/javascript">
 
-                
                 async function submit(message) {
                     try {
                         let form = new FormData();
@@ -73,14 +72,18 @@ $commentaire = ($nbr_total_comments[0] <= 1) ? 'Commentaire' : 'Commentaires';
                 {
                     var msg = prompt("Entrez votre commentaire");
                     if (!msg == ''){
-                        message = htmlentities(msg.trim());
-                        submit(message);
+                        trimmedMessage = msg.trim();
+                        submit(trimmedMessage);
+                    }
+                    else{
+                        alert('commentaire vide');
                     }
                 }
-
             </script>
+            
             <div class="btn-toolbar">
                 <button onclick="write_comment();" class="btn btn-lg btn-outline-secondary mr-5">Nouveau commentaire</button>
+                
                 <script type="text/javascript">
                     async function submitLike() {
                         try {
@@ -104,9 +107,8 @@ $commentaire = ($nbr_total_comments[0] <= 1) ? 'Commentaire' : 'Commentaires';
                             console.log(error);
                         }
                     }
-                    
-                    
-                    </script>
+                </script>
+
                 <div class="btn-group">
                     <button onclick="submitLike();" class="btn btn-lg btn-outline-secondary"><?=$nbr_like[0]?> <i class="fas fa-thumbs-up"></i></button> 
                     <script type="text/javascript">

@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     $req = $pdo->prepare("INSERT INTO articles SET com = ?, acteur_id = ?, user_id = ?");
     $req->execute([
-        $_POST['message'],
+        htmlentities($_POST['message']),
         $_SESSION['id'],
         $_SESSION['user_id']
         ]);
