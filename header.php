@@ -14,7 +14,7 @@ else
         </a>
         <form class="form-inline text-right col-xs-4">
             <a class="nav-link active" href="./user_page.php"><?=$_SESSION['nom']?> & <?=$_SESSION['prenom']?></a>
-            <a class="btn btn-sm btn-outline-secondary" type="button" href="./log_out.php">Se déConnectez</a>
+            <a class="btn btn-sm btn-outline-secondary" type="button" href="./log_out.php">Déconnexion</a>
         </form>
     </nav>
 <?php
