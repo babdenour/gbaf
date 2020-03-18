@@ -27,11 +27,7 @@
                     rel="drapeau france">
                 </section>
 
-<<<<<<< HEAD
                 <h2 style="text-align: center; margin-bottom: 20px">Acteurs et Partenaires</h2>
-=======
-                <h2 style="text-align: center">Acteurs et Partenaires</h2>
->>>>>>> refs/remotes/origin/master
                 <section class="">
                     <?php include('./section_acteurs.php'); ?>
                 </section>

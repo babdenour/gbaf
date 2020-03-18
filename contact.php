@@ -10,13 +10,8 @@ session_start();
         <header>
             <?php include('./header.php');?>
         </header>
-<<<<<<< HEAD
         <h2>Nous Contactez</h2>
         <p>Un problème, une question ? Contactez nous via le formulaire suivant.</p>
-=======
-        <h2>Nous Contacter</h2>
-        <p>Un problème, une question ? Contactez-nous via le formulaire suivant.</p>
->>>>>>> refs/remotes/origin/master
         <form method="post" action="./contact_saisie.php">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Email</label>
