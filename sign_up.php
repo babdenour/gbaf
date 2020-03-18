@@ -66,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="validationDefault02">Prénom</label>
+<<<<<<< HEAD
                     <input type="text" class="form-control" id="validationDefault02" placeholder="Entrez votre prénom" name="prenom" required> 
                 </div>
                 <div class="col-md-4 mb-3">
@@ -75,6 +76,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 <div class="col-md-4 mb-4">
                     <label for="validationDefault04">Mot de passe (8 caractères minimum)</label>
                     <input type="password" class="form-control" id="validationDefault04" placeholder="Entrez votre Mot de passe" name="password" required>
+=======
+                    <input type="text" class="form-control" id="validationDefault02" placeholder="Entrez votre Prénom" name="prenom" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationDefault03">Pseudo (4 caractères minimum)</label>
+                    <input type="text" class="form-control" id="validationDefault03" placeholder="Entrez votre UserName" name="user_name" required>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label for="validationDefault04">Mot de passe (8 caractères minimum)</label>
+                    <input type="password" class="form-control" id="validationDefault04" placeholder="Entrez votre Password" name="password" required>
+>>>>>>> refs/remotes/origin/master
                 </div>
                 <div class="col-md-4 mb-4">
                     <label for="validationDefault05">Question secrète</label>
