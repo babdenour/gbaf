@@ -71,7 +71,7 @@ $commentaire = ($nbr_total_comments[0] <= 1) ? 'Commentaire' : 'Commentaires';
                 
                 function write_comment()
                 {
-                    var msg = prompt("Entrer votre commentaire");
+                    var msg = prompt("Entrez votre commentaire");
                     if (!msg == ''){
                         message = htmlentities(msg.trim());
                         submit(message);

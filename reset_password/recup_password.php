@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     ?>
         <form class="" name="q_r_form" method="POST" action="./recup_reponse.php">
             <label for="question"><b>Question secrète : "<?=$_SESSION['question']?>"</b></br></label>
-            <input type="text" placeholder="Entrer votre reponse secrète" name="reponse" required></br>
+            <input type="text" placeholder="Entrez votre reponse secrète" name="reponse" required></br>
             <button type="submit">Validation</button>
         </form>
     <?php 
@@ -40,7 +40,7 @@ else
 ?>
     <form class="" method="POST" action="./recup_password.php">
         <label for="username"><b>Pseudo</b></label>
-        <input type="text" placeholder="Entrer votre Pseudo" name="user_name" required>
+        <input type="text" placeholder="Entrez votre Pseudo" name="user_name" required>
         <button type="submit">Validation</button>
     </form>
 <?php

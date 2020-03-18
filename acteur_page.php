@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_is_connected']) || !$_SESSION['user_is_connected'])
         <?php include("./head.php"); ?>
     </head>
     
-    <body>
+    <body class="container">
         <?php include('./header.php'); ?>
         <div>
             <?php include('./acteur_page_detail/detail_acteur.php');?>

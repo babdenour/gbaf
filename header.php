@@ -1,7 +1,7 @@
 <?php
-if (!isset($_SESSION['user_is_connected']) || !$_SESSION['user_is_connected'])
+if (!isset($_SESSION['user_is_connected']))
 {
-   ?> <h1 class="h3 mb-3 font-weight-normal"><a href="./index.php">Connecter-vous</a></h1><?php
+   ?> <h1 class="h3 mb-3 font-weight-normal"><a href="./index.php">Connectez-vous</a></h1><?php
 }
 else
 {
@@ -14,7 +14,7 @@ else
         </a>
         <form class="form-inline text-right col-xs-4">
             <a class="nav-link active" href="./user_page.php"><?=$_SESSION['nom']?> & <?=$_SESSION['prenom']?></a>
-            <a class="btn btn-sm btn-outline-secondary" type="button" href="./log_out.php">Se déconnecter</a>
+            <a class="btn btn-sm btn-outline-secondary" type="button" href="./log_out.php">Se déConnectez</a>
         </form>
     </nav>
 <?php

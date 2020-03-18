@@ -1,14 +1,17 @@
+<?php
+session_start();
+?>
 <html>
     <head>
         <?php include("./head.php");?>
     </head>
 
-    <body class="text-center">
+    <body class="container text-center">
         <header>
             <?php include('./header.php');?>
         </header>
-        <h2>Nous Contacter</h2>
-        <p>Un probléme, une question ? Contacter nous via le formulaire suivant.</p>
+        <h2>Nous Contactez</h2>
+        <p>Un problème, une question ? Contactez nous via le formulaire suivant.</p>
         <form method="post" action="./contact_saisie.php">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Email</label>
@@ -22,7 +25,7 @@
         </form>
 
         <footer>
-            <nav class="navbar navbar-light bg-light justify-content-center">
+            <nav class="navbar navbar-white bg-white justify-content-center">
                 <ul class="nav justify-content-center">
                     <li class="nav-item">
                         <p class="nav-link">GBAF par Abdenour Bensouna</p>  
@@ -31,7 +34,7 @@
                         <a class="nav-link" href="./index.php">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./mentions_legales.php">Mentions légales</a>
+                        <a class="nav-link" href="./mentions_legales.php">Mentions Légales</a>
                     </li>
                 </ul>
             </nav>
