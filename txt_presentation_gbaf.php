@@ -1,4 +1,4 @@
-<h1>Le Groupement Banque Assurance Français​ (GBAF) est une fédération représentant les 6 grands groupes français :</h1>
+<h1>Le Groupement Banque Assurance Français​ (GBAF) est une fédération représentant les 6 grands groupes français:</h1>
 <ul>
     <li>BNP Paribas</li>
     <li>BPCE</li>
