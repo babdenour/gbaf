@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
     //fetch of the username
     $user_name_verif = $pdo->prepare("SELECT user_name FROM users WHERE user_name = ?");
-    $user_name_verif->execute([htmlspecialchars($_POST['user_name'])]);
+    $user_name_verif->execute([htmlentities($_POST['user_name'])]);
     $u_n_v = $user_name_verif->fetch();
     $_SESSION['user_name'] = $u_n_v['user_name'];
     $user_name_verif->closeCursor();

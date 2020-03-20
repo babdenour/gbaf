@@ -5,9 +5,9 @@ require '_db.php';
 //rq->fech()($_POST['user_name'] && $_POST['password'])
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    $vpswd = htmlspecialchars($_POST['password']);
+    $vpswd = htmlentities($_POST['password']);
     $req = $pdo->prepare("SELECT user_id, user_name, nom, prenom, password FROM users WHERE user_name = ?");
-    $req->execute([htmlspecialchars($_POST['user_name'])]);
+    $req->execute([htmlentities($_POST['user_name'])]);
     $user_data = $req->fetch();
     $req->closeCursor();
     $verifpass = password_verify($vpswd, $user_data['password']);

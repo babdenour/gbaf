@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_is_connected']) || !$_SESSION['user_is_connected'])
     header('Location: ./index.php');
 }
 
-$_SESSION['id'] = htmlspecialchars($_GET['id']);
+$_SESSION['id'] = htmlentities($_GET['id']);
 //fetch of the actor
 $req = $pdo->prepare("SELECT * FROM acteurs WHERE acteur_id = ?");
 $req->execute([$_GET['id']]);

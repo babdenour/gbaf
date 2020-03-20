@@ -4,12 +4,12 @@ require './_db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    if ((strlen(htmlspecialchars($_POST['user_name'])) >= 4 && strlen(htmlspecialchars($_POST['password'])) >= 8))
+    if ((strlen(htmlentities($_POST['user_name'])) >= 4 && strlen(htmlentities($_POST['password'])) >= 8))
     {
         header('Location: ./sign_up.php');
         //fetch of the username
         $user_name_verif = $pdo->prepare("SELECT COUNT(*) FROM users WHERE user_name = ?");
-        $user_name_verif->execute([htmlspecialchars($_POST['user_name'])]);
+        $user_name_verif->execute([htmlentities($_POST['user_name'])]);
         $nbr_u_n_v = $user_name_verif->fetch();
         $user_name_verif->closeCursor();
         //verification if username does exist
@@ -19,22 +19,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         }
         else
         {
-            $hpwd = htmlspecialchars($_POST['password']);
+            $hpwd = htmlentities($_POST['password']);
             $password = password_hash($hpwd, PASSWORD_DEFAULT);
             $req = $pdo->prepare("INSERT INTO users SET nom = ?, prenom = ?, user_name = ?, password = ?, question = ?, reponse = ?");
             $req->execute([
-                htmlspecialchars($_POST['nom']),
-                htmlspecialchars($_POST['prenom']),
-                htmlspecialchars($_POST['user_name']),
+                htmlentities($_POST['nom']),
+                htmlentities($_POST['prenom']),
+                htmlentities($_POST['user_name']),
                 $password,
-                htmlspecialchars($_POST['question']),
-                htmlspecialchars($_POST['reponse'])
+                $_POST['question'],
+                htmlentities($_POST['reponse'])
                 ]);
                 $req->closeCursor();
                 
                 
             $req_id = $pdo->prepare("SELECT user_id FROM users WHERE user_name = ?");
-            $req_id->execute([ htmlspecialchars($_POST['user_name'])]);
+            $req_id->execute([ htmlentities($_POST['user_name'])]);
             $result = $req_id->fetch();
             $req_id->closeCursor();
             $user_id = $result[0];
@@ -77,8 +77,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     <input type="password" class="form-control" id="validationDefault04" placeholder="Entrez votre Mot de passe" name="password" required>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <label for="validationDefault05">Question secrète</label>
-                    <input type="text" class="form-control" id="validationDefault05" placeholder="Entrez votre question secrète" name="question" required>
+                    <label for="question">Question secrète</label>
+                    <select class="form-control" id="validationDefault05" name="question" required>
+                        <option value="">Choisir votre question secrète...</option>
+                        <option value="Nom de votre premier jeux vidéo.">Nom de votre premier jeux vidéo.</option>
+                        <option value="Nom de jeune fille de votre maman.">Nom de jeune fille de votre maman.</option>
+                        <option value="Adresse de votre habitation d'enfance.">Adresse de votre habitation d'enfance.</option>
+                        <option value="Equipe de sport favorite.">Equipe de sport favorite.</option>
+                    </select>
                 </div>
                 <div class="col-md-4 mb-4">
                     <label for="validationDefault06">Réponse secrète</label>
@@ -97,6 +103,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         <a class="btn btn-sm btn-outline-secondary" type="button" href="./index.php">Annuler</a>
     </form>
     </br>
-        <?php include('./footer.php');?>
+    <?php include('./footer.php');?>
     <?php include('./script.php');?> </body>
+    <div class="row">
+          <div class="col-md-5 mb-3">
+          </div>
+        </div>
 </html>
