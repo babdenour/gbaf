@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     <input type="text" class="form-control" id="validationDefault03" placeholder="Entrez votre Pseudo" name="user_name" required>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <label for="validationDefault04">Mot de passe (8 caractères minimum)</label>
+                    <label for="validationDefault04">Mot de passe</label>
                     <input type="password" class="form-control" id="validationDefault04" placeholder="Entrez votre Mot de passe" name="password" required>
                 </div>
                 <div class="col-md-4 mb-4">
@@ -99,14 +99,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     </label>
                 </div>
             </div>
+            </br>
         <button class="btn btn-primary" type="submit">VALIDATION</button>
         <a class="btn btn-sm btn-outline-secondary" type="button" href="./index.php">Annuler</a>
     </form>
     </br>
     <?php include('./footer.php');?>
     <?php include('./script.php');?> </body>
-    <div class="row">
-          <div class="col-md-5 mb-3">
-          </div>
-        </div>
 </html>
