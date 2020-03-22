@@ -1,7 +1,6 @@
 <?php
 require '_db.php';
 
-
 //rq->fech()($_POST['user_name'] && $_POST['password'])
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
@@ -11,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $user_data = $req->fetch();
     $req->closeCursor();
     $verifpass = password_verify($vpswd, $user_data['password']);
+    
     if (isset($user_data['user_id']) && $verifpass == true)
     {
         session_start();
@@ -21,15 +21,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $_SESSION['user_name'] = $user_data['user_name'];
         $_SESSION['user_is_connected'] = true;
         //redirection
-        header('Location: home.php');
+        header('Location: ./home.php');
     }
+    //pop up pb of connexion
     else 
     {
-        header('Location: index.php');
+    ?>
+    <script>
+        alert('Données incohérentes');
+        document.location.replace("./index.php");
+    </script>
+    <?php
     }
 }
 else 
 {
-    header('Location: index.php');
+    header('Location: ./index.php');
 }
 ?>

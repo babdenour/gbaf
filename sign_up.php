@@ -4,21 +4,43 @@ require './_db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    if ((strlen(htmlentities($_POST['user_name'])) >= 4 && strlen(htmlentities($_POST['password'])) >= 8))
+   
+    if (strlen(htmlentities($_POST['user_name'])) < 4){
+        ?>
+        <script>
+            alert('Le pseudo ne contient pas au minimum 4 caractères');
+        </script>
+        <?php
+    }
+    if (strlen(htmlentities($_POST['password'])) < 8){
+        ?>
+        <script>
+            alert('Le mot de passe ne contient pas au minimum 8 caractères');
+        </script>
+        <?php
+    }
+    
+    if (strlen(htmlentities($_POST['user_name'])) >= 4)
     {
-        header('Location: ./sign_up.php');
+        
         //fetch of the username
         $user_name_verif = $pdo->prepare("SELECT COUNT(*) FROM users WHERE user_name = ?");
         $user_name_verif->execute([htmlentities($_POST['user_name'])]);
         $nbr_u_n_v = $user_name_verif->fetch();
         $user_name_verif->closeCursor();
         //verification if username does exist
+      
         if ($nbr_u_n_v[0] > 0)
         {
-            echo 'username deja utiliser</br>';
+        ?>
+        <script>
+            alert('Pseudo indisponible');
+        </script>
+        <?php
         }
         else
         {
+            //creation in database
             $hpwd = htmlentities($_POST['password']);
             $password = password_hash($hpwd, PASSWORD_DEFAULT);
             $req = $pdo->prepare("INSERT INTO users SET nom = ?, prenom = ?, user_name = ?, password = ?, question = ?, reponse = ?");
@@ -30,19 +52,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 $_POST['question'],
                 htmlentities($_POST['reponse'])
                 ]);
-                $req->closeCursor();
-                
-                
-            $req_id = $pdo->prepare("SELECT user_id FROM users WHERE user_name = ?");
-            $req_id->execute([ htmlentities($_POST['user_name'])]);
-            $result = $req_id->fetch();
-            $req_id->closeCursor();
-            $user_id = $result[0];
+            $req->closeCursor();
             header('Location: ./index.php');                
         }
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -52,13 +66,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     </head>
 
     <body class="container text-center mt-5">
-    <img class="mb-4" src="https://user.oc-static.com/upload/2019/07/15/15631755744257_LOGO_GBAF_ROUGE%20%281%29.png" 
-        rel="logo gbaf" width="72" height="72">
+        <a href="./index.php"><img class="mb-4" src="https://user.oc-static.com/upload/2019/07/15/15631755744257_LOGO_GBAF_ROUGE%20%281%29.png" 
+        rel="logo gbaf" width="72" height="72"></a>
         <h1>Inscription</h1>
         <p>Veuillez remplir les champs</p>
-  </br>
+        </br>
         <form method="POST" action="./sign_up.php">
-        
             <div class="form-row" style="padding: 5px">
                 <div class="col-md-4 mb-3">
                     <label for="validationDefault01">Nom</label>
@@ -73,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     <input type="text" class="form-control" id="validationDefault03" placeholder="Entrez votre Pseudo" name="user_name" required>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <label for="validationDefault04">Mot de passe</label>
+                    <label for="validationDefault04">Mot de passe (8 caractères minimum)</label>
                     <input type="password" class="form-control" id="validationDefault04" placeholder="Entrez votre Mot de passe" name="password" required>
                 </div>
                 <div class="col-md-4 mb-4">
@@ -100,10 +113,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 </div>
             </div>
             </br>
-        <button class="btn btn-primary" type="submit">VALIDATION</button>
-        <a class="btn btn-sm btn-outline-secondary" type="button" href="./index.php">Annuler</a>
-    </form>
-    </br>
-    <?php include('./footer.php');?>
+            <button class="btn btn-primary" type="submit">VALIDATION</button>
+            <a class="btn btn-sm btn-outline-secondary" type="button" href="./index.php">Annuler</a>
+        </form>
+        </br>
+        <footer>
+            <?php include('./footer.php');?>
+        </footer>
+    </body>
     <?php include('./script.php');?> </body>
 </html>
