@@ -15,10 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $password_update = $pdo->prepare("UPDATE users SET password = ? WHERE user_name = ? AND question = ? AND reponse = ?");
             $password_update->execute([
                 $hpass,
-                htmlentities($_SESSION['user_name']),
+                $_SESSION['user_name'],
                 $_SESSION['question'],
                 $_SESSION['reponse']
             ]);
+            header('Location: ../home.php');
         }
         else
         {

@@ -9,11 +9,6 @@ if (!isset($_SESSION['user_is_connected']) || !$_SESSION['user_is_connected'])
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    if (strlen(htmlentities($_POST['user_name'])) < 4){
-        $_POST['user_name'] = $_SESSION['user_name'];
-    }
-    
-    
     //verif of user_name disponobility
     $user_name_verif = $pdo->prepare("SELECT COUNT(*) FROM users WHERE user_name = ? AND user_id <> ?");
     $user_name_verif->execute([
@@ -23,9 +18,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $nbr_u_n_v = $user_name_verif->fetch();
     $user_name_verif->closeCursor();
     
-    if ($nbr_u_n_v[0] > 0)
+    if (($nbr_u_n_v[0] > 0) || ($_POST['user_name'] != '') && (strlen(htmlentities($_POST['user_name'])) < 4) || ($_POST['password'] != '') && (strlen(htmlentities($_POST['password'])) < 8))
     {
-        echo 'username deja utiliser</br>';
+        if ($nbr_u_n_v[0] > 0)
+        {
+        ?>
+        <script>
+            alert('Pseudo indisponible');
+            document.location.replace("./user_page.php");
+        </script>
+        <?php
+        }
+        if (($_POST['user_name'] != '') && (strlen(htmlentities($_POST['user_name'])) < 4)){
+            ?>
+            <script>
+                alert('Le pseudo ne contient pas au minimum 4 caractères');
+                document.location.replace("./user_page.php");
+            </script>
+            <?php
+        }
+        if (($_POST['password'] != '') && (strlen(htmlentities($_POST['password'])) < 8)){
+            ?>
+            <script>
+                alert('Le mot de passe ne contient pas au minimum 8 caractères');
+                document.location.replace("./user_page.php");
+            </script>
+            <?php
+        }
     }
     else
     {
@@ -42,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             htmlentities($_POST['reponse']),
             $_SESSION['user_id']
             ]);
-            
+        //reset session data
         $_SESSION['nom'] = htmlentities($_POST['nom']);
         $_SESSION['prenom'] = htmlentities($_POST['prenom']);
         $_SESSION['user_name'] = htmlentities($_POST['user_name']);
@@ -88,7 +107,7 @@ $req->closeCursor();
                             <input class="form-control" type="text" placeholder="Modifier votre Pseudo ?" value="<?=$user_data['user_name']?>" name="user_name">
                         </div>
                         <div class="col-md-4 mb-4">
-                            <label for="password"><b>Mot de passe</b></label>
+                            <label for="password"><b>Mot de passe 8 caractères minimum</b></label>
                             <input class="form-control" type="password" name="password" placeholder="Modifier votre mot de passe ?">
                         </div>
                         <div class="col-md-4 mb-4">
@@ -114,5 +133,4 @@ $req->closeCursor();
             <?php include('./footer.php');?>
         </footer>
     <?php include('./script.php');?> </body>
-
 </html>

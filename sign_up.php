@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         ?>
         <script>
             alert('Le pseudo ne contient pas au minimum 4 caractères');
+            document.location.replace("./sign_up.php");
         </script>
         <?php
     }
@@ -16,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         ?>
         <script>
             alert('Le mot de passe ne contient pas au minimum 8 caractères');
+            document.location.replace("./sign_up.php");
         </script>
         <?php
     }
