@@ -15,7 +15,7 @@
         </head>
         
         <body class="container">
-            <header class="">
+            <header>
                 <?php include('./header.php'); ?>
             </header>
                 
