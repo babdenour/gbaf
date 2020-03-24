@@ -36,6 +36,7 @@ $req = $pdo->prepare("SELECT user_id, com, date FROM articles WHERE acteur_id = 
 $req->execute([$_SESSION['id']]);
 $comments_data = $req->fetchALL();
 $req->closeCursor();
+
 //print s or no for commentaire(s)
 $commentaire = ($nbr_total_comments[0] <= 1) ? 'Commentaire' : 'Commentaires';
 ?>
@@ -59,8 +60,11 @@ $commentaire = ($nbr_total_comments[0] <= 1) ? 'Commentaire' : 'Commentaires';
                         let data = await response.text()
                         let url = window.name;
 
-                        if(response.status === 200) {
+                        if (response.status === 200) {
                             window.location = url;
+                        }
+                        if (response.status === 503) {
+                            alert('Vous avez déjà mis un commentaire sur cet acteur.');
                         }
                         
                     } catch (error) {
@@ -99,7 +103,7 @@ $commentaire = ($nbr_total_comments[0] <= 1) ? 'Commentaire' : 'Commentaires';
                             let data = await response.text()
                             let url = window.name;
                             
-                            if(response.status === 200) {
+                            if (response.status === 200) {
                                 window.location = url;
                             }
                             
@@ -127,7 +131,7 @@ $commentaire = ($nbr_total_comments[0] <= 1) ? 'Commentaire' : 'Commentaires';
 
                                 let url = window.name;
 
-                                if(response.status === 200) {
+                                if (response.status === 200) {
                                     window.location = url;
                                 }
                                 
