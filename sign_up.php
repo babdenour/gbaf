@@ -49,14 +49,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $password = password_hash($hpwd, PASSWORD_DEFAULT);
             
             //creation in database
-            $req = $pdo->prepare("UPDATE users SET nom = ?, prenom = ?, user_name = ?, password = ?, question = ?, reponse = ?");
+            $req = $pdo->prepare("UPDATE users SET nom = ?, prenom = ?, user_name = ?, password = ?, question = ?, reponse = ? WHERE user_id = ?");
             $req->execute([
                 htmlentities($_POST['nom']),
                 htmlentities($_POST['prenom']),
                 htmlentities($_POST['user_name']),
                 $password,
                 $_POST['question'],
-                htmlentities($_POST['reponse'])
+                htmlentities($_POST['reponse']),
+                $_SESSION['user_id']
                 ]);
             $req->closeCursor();
 
