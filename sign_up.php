@@ -1,6 +1,14 @@
 <?php
 session_start();
 require './_db.php';
+?>
+        <script>
+            var mdp  = prompt('Entrez le mot de passe');
+            if (mdp != 'GBAF2020'){
+            document.location.replace("./index.php");
+            }
+        </script>
+<?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
