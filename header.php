@@ -1,11 +1,3 @@
-<?php
-if (!isset($_SESSION['user_is_connected']))
-{
-   ?> <h1 class="h3 mb-3 font-weight-normal"><a href="./index.php">Connectez-vous</a></h1><?php
-}
-else
-{
-?>
 <div class="container">
     <nav class="navbar navbar-white bg-white">
         <div class="offset-xs-3 col-sm-1 py-4 text-center">
@@ -22,5 +14,3 @@ else
         </div>
     </nav>
 </div>
-<?php
-}

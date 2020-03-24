@@ -1,4 +1,5 @@
 <?php
+require('_db.php');
 session_start();
 ?>
 <html>

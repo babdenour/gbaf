@@ -1,18 +1,11 @@
 <?php
 session_start();
 require './_db.php';
-?>
-        <script>
-            var mdp  = prompt('Entrez le mot de passe');
-            if (mdp != 'GBAF2020'){
-            document.location.replace("./index.php");
-            }
-        </script>
-<?php
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-   
+   //verif global
     if (strlen(htmlentities($_POST['user_name'])) < 4){
         ?>
         <script>
@@ -29,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         </script>
         <?php
     }
+    //end verif global
     
     if (strlen(htmlentities($_POST['user_name'])) >= 4)
     {
@@ -38,9 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $user_name_verif->execute([htmlentities($_POST['user_name'])]);
         $nbr_u_n_v = $user_name_verif->fetch();
         $user_name_verif->closeCursor();
+        
         //verification if username does exist
-      
-        if ($nbr_u_n_v[0] > 0)
+        if ($nbr_u_n_v[0] > 1)
         {
         ?>
         <script>
@@ -50,10 +44,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         }
         else
         {
-            //creation in database
+            //hpassword
             $hpwd = htmlentities($_POST['password']);
             $password = password_hash($hpwd, PASSWORD_DEFAULT);
-            $req = $pdo->prepare("INSERT INTO users SET nom = ?, prenom = ?, user_name = ?, password = ?, question = ?, reponse = ?");
+            
+            //creation in database
+            $req = $pdo->prepare("UPDATE users SET nom = ?, prenom = ?, user_name = ?, password = ?, question = ?, reponse = ?");
             $req->execute([
                 htmlentities($_POST['nom']),
                 htmlentities($_POST['prenom']),
@@ -63,6 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 htmlentities($_POST['reponse'])
                 ]);
             $req->closeCursor();
+
+            //redirection
             header('Location: ./index.php');                
         }
     }
@@ -128,7 +126,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         </form>
         </br>
         <footer>
-            <?php include('./footer.php');?>
+            <nav class="navbar navbar-white bg-white justify-content-center col-sm-12">
+                <p class="nav-link">GBAF par Abdenour Bensouna</p>        
+            </nav>
         </footer>
     </body>
     <?php include('./script.php');?> </body>

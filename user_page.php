@@ -17,7 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     ]);
     $nbr_u_n_v = $user_name_verif->fetch();
     $user_name_verif->closeCursor();
-    
+   
+    //verif global
     if (($nbr_u_n_v[0] > 0) || ($_POST['user_name'] != '') && (strlen(htmlentities($_POST['user_name'])) < 4) || ($_POST['password'] != '') && (strlen(htmlentities($_POST['password'])) < 8))
     {
         if ($nbr_u_n_v[0] > 0)
@@ -45,7 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             </script>
             <?php
         }
-    }
+    }//end verif global
+
     else
     {
         //update sql champs form
