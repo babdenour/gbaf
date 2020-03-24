@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 $_SESSION['question'],
                 $_SESSION['reponse']
             ]);
-            ?>
+        ?>
         <script>
             alert('Mot de passe pris en compte');
             document.location.replace("../index.php");
